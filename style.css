@@ -9,9 +9,6 @@
     width:40rem;
     height:40rem;
     border:10px solid rgb(42, 97, 104);
-   
-    
-
 }
 h1{
     color:rgb(42, 97, 104);
@@ -27,6 +24,14 @@ h1{
     flex-direction: column;
     gap: 1rem;
    
+}
+.btn{
+    background-color:rgb(42, 97, 104); 
+    color: white;
+    font-weight: bold;
+    margin-top: 2rem;
+    font-size: 1rem;
+    border: none;
 }
 
 
