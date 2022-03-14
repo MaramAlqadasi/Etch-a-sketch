@@ -46,11 +46,20 @@ eraser.addEventListener('click',()=>{
     setMode('eraser');
    
 });
-
+let gridLine=1;
 gridLines.addEventListener('click',()=>{
+   if(gridLine==1){
     for(let i=0;i<pixels.length;i++){
-        pixels[i].style.border="None";
+        pixels[i].style.cssText="border:1px solid gray;";
     } 
+    gridLine=0;
+   }
+   else if(gridLine==0){
+    for(let i=0;i<pixels.length;i++){
+        pixels[i].style.cssText="border:none";
+    } 
+    gridLine=1;
+   }
    
 });
 
@@ -63,7 +72,7 @@ board.style.cssText=`grid-template-columns:repeat(${grid},1fr);grid-template-row
 for(let i=0;i<grid;i++){
     for(let j=0;j<grid;j++){
         const div=document.createElement('div');
-        div.style.cssText="border:1px solid gray;box-sizing:border-box;";
+        div.style.cssText="padding:1rem";
         div.classList.add('pixel');
         board.appendChild(div); 
         }
@@ -74,6 +83,7 @@ for(let i=0;i<pixels.length;i++){
     pixels[i].addEventListener('mouseover',()=>{
         if(currentMode==='oneColor'){
             pixels[i].style.backgroundColor=getColor();
+            
         }
         else if(currentMode==='rainbow'){
             pixels[i].style.backgroundColor=`rgb(${getRainbowColor()})`;
