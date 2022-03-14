@@ -9,6 +9,8 @@
     grid-template-rows: auto;
     gap:5%;
     justify-content: center;
+    margin: 2rem 1rem;
+    border-radius: 20px;
    
   
 }
@@ -16,6 +18,8 @@
     display:grid;
     border:5px solid rgb(42, 97, 104);
     margin-top: 2rem;
+    height: 35rem;
+    width: 35rem;
 }
 h1{
     color:rgb(42, 97, 104);
@@ -29,7 +33,7 @@ h1{
 .side-bar{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    justify-content: center;
    
 }
 .btn{
@@ -41,11 +45,14 @@ h1{
     border: none;
     padding: 1rem;
     cursor: pointer;
+    border-radius: 5px;
+    transition: all .3s;
 }
 
 
 .btn:hover{
-    transform: scale(1.1);
+    background-color: rgb(72, 164, 177);
+    
 
 }
 input[type="color"] {
@@ -67,10 +74,29 @@ input{
 }
 
 @media screen and (max-width:768px) {
-    .container{
+    .board{
      
-        
+        height: 25rem;
+        width: 25rem;
       
+    }
+    .btn{
+        margin-top: 1rem;
+        font-size: 1rem;
+        padding: .5rem;
+    }
+
+    
+}
+@media screen and (max-width:600px) {
+    .board{
+        height: 20rem;
+        width: 20rem;
+    }
+    .btn{
+        margin-top: .5rem;
+        font-size: .8rem ;
+        padding: .5rem 0; 
     }
 
     

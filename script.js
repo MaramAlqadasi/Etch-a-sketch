@@ -56,7 +56,7 @@ gridLines.addEventListener('click',()=>{
    }
    else if(gridLine==0){
     for(let i=0;i<pixels.length;i++){
-        pixels[i].style.cssText="border:none";
+        pixels[i].style.cssText="border:None";
     } 
     gridLine=1;
    }
@@ -72,7 +72,6 @@ board.style.cssText=`grid-template-columns:repeat(${grid},1fr);grid-template-row
 for(let i=0;i<grid;i++){
     for(let j=0;j<grid;j++){
         const div=document.createElement('div');
-        div.style.cssText="padding:1rem";
         div.classList.add('pixel');
         board.appendChild(div); 
         }
