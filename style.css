@@ -50,10 +50,9 @@ h1{
 }
 
 
-.btn:hover{
-    background-color: rgb(72, 164, 177);
-    
 
+.active{
+    background-color:rgb(53, 185, 194); 
 }
 input[type="color"] {
 	-webkit-appearance: none;
@@ -72,6 +71,10 @@ input[type="color"]::-webkit-color-swatch {
 input{
     cursor: pointer;
 }
+.gridNum{
+    margin-top: 2rem;
+}
+
 
 @media screen and (max-width:768px) {
     .board{

@@ -2,21 +2,22 @@
 let currentColor = "#000";
 let currentMode = 'oneColor';
 let currentSize = 16;
+let gridLine=1;
 
 
-const grid=getGridNum();
+
 const color=document.querySelector('.color');
 const eraser=document.querySelector('.eraser');
 const gridLines=document.querySelector('.gridLines');
 const rainbow=document.querySelector('.rainbow');
 const clearing=document.querySelector('.clearing');
-const gridNums=document.querySelector('.gridNum');
+const gridNums=document.querySelector('#gridNum');
+const size=document.querySelector("#size");
 
 
-function getGridNum(newSize){
-//    currentSize=newSize;
-    return 16;
-}
+
+
+
 
 function getColor(){
     const color=document.querySelector('.color').value;
@@ -35,47 +36,66 @@ function setMode(newMode){
 }
 color.addEventListener('click',()=>{
     setMode('oneColor');
+    color.classList.add("active");
+    rainbow.classList.remove("active");
+    eraser.classList.remove("active");
    
 });
 rainbow.addEventListener('click',()=>{
     setMode('rainbow');
+    rainbow.classList.add("active");
+    color.classList.remove("active");
+    eraser.classList.remove("active");
    
 });
 
 eraser.addEventListener('click',()=>{
     setMode('eraser');
+    eraser.classList.add("active");
+    color.classList.remove("active");
+    rainbow.classList.remove("active");
    
 });
-let gridLine=1;
-gridLines.addEventListener('click',()=>{
-   if(gridLine==1){
-    for(let i=0;i<pixels.length;i++){
-        pixels[i].style.cssText="border:1px solid gray;";
-    } 
-    gridLine=0;
-   }
-   else if(gridLine==0){
-    for(let i=0;i<pixels.length;i++){
-        pixels[i].style.cssText="border:None";
-    } 
-    gridLine=1;
-   }
-   
-});
+// function changeSize(newSize){
+//     grid=newSize;
+// }
+// let gridLine=1;
+// gridNums.addEventListener('change',changeSize(`${gridNums.value}`);
+    
+// let grid=changeSize(16);
 
 const container=document.querySelector('.container');
 const board=document.createElement('div');
 container.appendChild(board);
 board.classList.add("board");
-board.style.cssText=`grid-template-columns:repeat(${grid},1fr);grid-template-rows: repeat(${grid},1fr);`;
+board.style.cssText=`grid-template-columns:repeat(${currentSize},1fr);grid-template-rows: repeat(${currentSize},1fr);`;
 
-for(let i=0;i<grid;i++){
-    for(let j=0;j<grid;j++){
+for(let i=0;i<currentSize;i++){
+    for(let j=0;j<currentSize;j++){
         const div=document.createElement('div');
         div.classList.add('pixel');
         board.appendChild(div); 
+        
         }
 }  
+gridLines.addEventListener('click',()=>{
+    if(gridLine==1){
+       gridLines.classList.add("active");
+     for(let i=0;i<pixels.length;i++){
+         pixels[i].style.cssText="border:1px solid gray";
+     } 
+     gridLine=0;
+    }
+    else if(gridLine==0){
+        gridLines.classList.remove("active");
+     for(let i=0;i<pixels.length;i++){
+         pixels[i].style.cssText="border:None";
+     } 
+     gridLine=1;
+    }
+    
+ });
+
 
 const pixels=document.querySelectorAll(".pixel");
 for(let i=0;i<pixels.length;i++){
@@ -96,13 +116,27 @@ for(let i=0;i<pixels.length;i++){
 }
 
 
+    
+
 clearing.addEventListener('click',()=>{
+    console.log("m");
+    clearing.classList.add("active");
  clear();
 });
 
 function clear(){
     window.location.reload();
-    console.log ("clear");
 }
+// const gridP=document.createElement('p');
+// gridP.style.color="red";
+// const gridValue=document.querySelector('#gridNum');
+// gridNums.addEventListener('change',(k)=>{
+//     k=gridNums.value;
+//     grid=gridNums.value;
+//     console.log (gridNums.value);
+   
+// gridP.innerText=`${k}`;
+// container.appendChild(gridP);
+// })
 
 
